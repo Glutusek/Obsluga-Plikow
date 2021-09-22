@@ -41,9 +41,14 @@ namespace Pliczki
                 {
                     if (openFileDialog.OpenFile() != null) {
 
-                        using (StreamReader fileReader = new StreamReader(openFileDialog.OpenFile()))
+                        using (StreamReader fileReader = new StreamReader(openFileDialog.FileName))
                         {
-                            myStream = fileReader.ReadToEnd();
+                            string line;
+
+                            while((line = fileReader.ReadLine()) != null)
+                            {
+                                FileContentBox.Text += line + "\r\n";
+                            }
                         }
                     }
                 }

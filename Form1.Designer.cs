@@ -39,6 +39,7 @@ namespace Pliczki
             this.FileContentBox.Location = new System.Drawing.Point(32, 28);
             this.FileContentBox.Multiline = true;
             this.FileContentBox.Name = "FileContentBox";
+            this.FileContentBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.FileContentBox.Size = new System.Drawing.Size(524, 381);
             this.FileContentBox.TabIndex = 0;
             // 
