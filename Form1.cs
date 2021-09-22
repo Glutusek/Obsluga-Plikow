@@ -20,7 +20,7 @@ namespace Pliczki
 
         private void OpenFileButton_Click(object sender, EventArgs e)
         {
-            Stream myStream = null;
+            Stream stream = null;
 
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -39,29 +39,65 @@ namespace Pliczki
             {
                 try
                 {
-                    if (openFileDialog.OpenFile() != null) {
+                    if ((stream = openFileDialog.OpenFile()) != null) {
 
                         using (StreamReader fileReader = new StreamReader(openFileDialog.FileName))
                         {
                             string line;
 
+                            FileContentBox.Text = "";
+
                             while((line = fileReader.ReadLine()) != null)
-                            {
+                            { 
                                 FileContentBox.Text += line + "\r\n";
                             }
+
+                            fileReader.Close();
+                            fileReader.Dispose();
                         }
                     }
+                    stream.Close();
                 }
                 catch (Exception exc)
                 {
                     MessageBox.Show("Error: " + exc.Message);
+                    stream.Close();
                 }
             }
         }
 
         private void SaveFileButton_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = @"C:\",
+                RestoreDirectory = true,
+                Title = "Open Text Files",
+                DefaultExt = "txt",
+                Filter = "Txt files (*.txt)|*.txt|All files (*.*)|*.*",
+                CheckPathExists = true
+            };
 
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    StreamWriter fileWriter = new StreamWriter(saveFileDialog.OpenFile());
+
+                    if (FileContentBox.Text != null)
+                    {
+                        fileWriter.Write(FileContentBox.Text);
+                    }
+
+                    fileWriter.Flush();
+                    fileWriter.Close();
+                    fileWriter.Dispose();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Error: " + exc.Message);
+                }
+            }
         }
     }
 }
