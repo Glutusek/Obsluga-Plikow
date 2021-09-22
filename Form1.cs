@@ -53,7 +53,6 @@ namespace Pliczki
                             }
 
                             fileReader.Close();
-                            fileReader.Dispose();
                         }
                     }
                     stream.Close();
@@ -91,7 +90,6 @@ namespace Pliczki
 
                     fileWriter.Flush();
                     fileWriter.Close();
-                    fileWriter.Dispose();
                 }
                 catch (Exception exc)
                 {
