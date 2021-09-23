@@ -35,7 +35,8 @@ namespace Pliczki
             this.tabControl = new System.Windows.Forms.TabControl();
             this.withoutFormat = new System.Windows.Forms.TabPage();
             this.withFormat = new System.Windows.Forms.TabPage();
-            this.fontBox = new System.Windows.Forms.GroupBox();
+            this.FontBox = new System.Windows.Forms.GroupBox();
+            this.italicBoldFontButton = new System.Windows.Forms.RadioButton();
             this.regularFontButton = new System.Windows.Forms.RadioButton();
             this.italicFontButton = new System.Windows.Forms.RadioButton();
             this.boldFontButton = new System.Windows.Forms.RadioButton();
@@ -47,7 +48,7 @@ namespace Pliczki
             this.tabControl.SuspendLayout();
             this.withoutFormat.SuspendLayout();
             this.withFormat.SuspendLayout();
-            this.fontBox.SuspendLayout();
+            this.FontBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // FileContentBox
@@ -104,7 +105,7 @@ namespace Pliczki
             // 
             // withFormat
             // 
-            this.withFormat.Controls.Add(this.fontBox);
+            this.withFormat.Controls.Add(this.FontBox);
             this.withFormat.Controls.Add(this.ColorButton);
             this.withFormat.Controls.Add(this.SaveFileButton_RTF);
             this.withFormat.Controls.Add(this.OpenFileButton_RTF);
@@ -118,22 +119,35 @@ namespace Pliczki
             this.withFormat.Text = "With formatting";
             this.withFormat.UseVisualStyleBackColor = true;
             // 
-            // fontBox
+            // FontBox
             // 
-            this.fontBox.Controls.Add(this.regularFontButton);
-            this.fontBox.Controls.Add(this.italicFontButton);
-            this.fontBox.Controls.Add(this.boldFontButton);
-            this.fontBox.Location = new System.Drawing.Point(637, 20);
-            this.fontBox.Name = "fontBox";
-            this.fontBox.Size = new System.Drawing.Size(116, 108);
-            this.fontBox.TabIndex = 8;
-            this.fontBox.TabStop = false;
-            this.fontBox.Text = "Font";
+            this.FontBox.Controls.Add(this.italicBoldFontButton);
+            this.FontBox.Controls.Add(this.regularFontButton);
+            this.FontBox.Controls.Add(this.italicFontButton);
+            this.FontBox.Controls.Add(this.boldFontButton);
+            this.FontBox.Location = new System.Drawing.Point(637, 20);
+            this.FontBox.Name = "FontBox";
+            this.FontBox.Size = new System.Drawing.Size(116, 124);
+            this.FontBox.TabIndex = 8;
+            this.FontBox.TabStop = false;
+            this.FontBox.Text = "Font";
+            // 
+            // italicBoldFontButton
+            // 
+            this.italicBoldFontButton.AutoSize = true;
+            this.italicBoldFontButton.Location = new System.Drawing.Point(10, 98);
+            this.italicBoldFontButton.Name = "italicBoldFontButton";
+            this.italicBoldFontButton.Size = new System.Drawing.Size(100, 19);
+            this.italicBoldFontButton.TabIndex = 8;
+            this.italicBoldFontButton.TabStop = true;
+            this.italicBoldFontButton.Text = "Bold and Italic";
+            this.italicBoldFontButton.UseVisualStyleBackColor = true;
+            this.italicBoldFontButton.CheckedChanged += new System.EventHandler(this.FontButton_CheckedChanged);
             // 
             // regularFontButton
             // 
             this.regularFontButton.AutoSize = true;
-            this.regularFontButton.Location = new System.Drawing.Point(27, 22);
+            this.regularFontButton.Location = new System.Drawing.Point(10, 22);
             this.regularFontButton.Name = "regularFontButton";
             this.regularFontButton.Size = new System.Drawing.Size(65, 19);
             this.regularFontButton.TabIndex = 5;
@@ -145,7 +159,7 @@ namespace Pliczki
             // italicFontButton
             // 
             this.italicFontButton.AutoSize = true;
-            this.italicFontButton.Location = new System.Drawing.Point(26, 73);
+            this.italicFontButton.Location = new System.Drawing.Point(10, 73);
             this.italicFontButton.Name = "italicFontButton";
             this.italicFontButton.Size = new System.Drawing.Size(50, 19);
             this.italicFontButton.TabIndex = 7;
@@ -157,7 +171,7 @@ namespace Pliczki
             // boldFontButton
             // 
             this.boldFontButton.AutoSize = true;
-            this.boldFontButton.Location = new System.Drawing.Point(27, 48);
+            this.boldFontButton.Location = new System.Drawing.Point(10, 47);
             this.boldFontButton.Name = "boldFontButton";
             this.boldFontButton.Size = new System.Drawing.Size(49, 19);
             this.boldFontButton.TabIndex = 6;
@@ -227,8 +241,8 @@ namespace Pliczki
             this.withoutFormat.ResumeLayout(false);
             this.withoutFormat.PerformLayout();
             this.withFormat.ResumeLayout(false);
-            this.fontBox.ResumeLayout(false);
-            this.fontBox.PerformLayout();
+            this.FontBox.ResumeLayout(false);
+            this.FontBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -249,7 +263,8 @@ namespace Pliczki
         private System.Windows.Forms.RadioButton regularFontButton;
         private System.Windows.Forms.RadioButton boldFontButton;
         private System.Windows.Forms.RadioButton italicFontButton;
-        private System.Windows.Forms.GroupBox fontBox;
+        private System.Windows.Forms.GroupBox FontBox;
+        private System.Windows.Forms.RadioButton italicBoldFontButton;
     }
 }
 

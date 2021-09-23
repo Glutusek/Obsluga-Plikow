@@ -202,9 +202,55 @@ namespace Pliczki
 
         private void FontButton_CheckedChanged(object sender, EventArgs e)
         {
-            /*var buttons = Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked);
+            var selectedFont = FontBox.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked);
 
-            MessageBox.Show(buttons.Name);*/
+            int selStart = RichTextBox.SelectionStart;
+            int selLength = RichTextBox.SelectionLength;
+
+            switch (selectedFont.Name)
+            {
+                case "regularFontButton":
+                    {
+                        RichTextBox.SelectionFont = new Font(RichTextBox.Font, FontStyle.Regular);
+                        break;
+                    }
+
+                case "boldFontButton":
+                    {
+                        RichTextBox.SelectionFont = new Font(RichTextBox.Font, FontStyle.Bold);
+                        break;
+                    }
+
+                case "italicFontButton":
+                    {
+                        RichTextBox.SelectionFont = new Font(RichTextBox.Font, FontStyle.Italic);
+                        break;
+                    }
+
+
+                case "italicBoldFontButton":
+                    {
+                        RichTextBox.SelectionFont = new Font(RichTextBox.Font, FontStyle.Italic | FontStyle.Bold);
+                        break;
+                    }
+            }
+
+            RichTextBox.SelectionStart = RichTextBox.SelectionStart + RichTextBox.SelectionLength;
+            RichTextBox.SelectionLength = 0;
+            RichTextBox.SelectionFont = RichTextBox.Font;
+            RichTextBox.Select(selStart, selLength);
         }
     }
 }
+
+/*
+ * int selstart = richTextBox1.SelectionStart;
+ * int sellength = richTextBox1.SelectionLength;
+ * 
+ * richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Bold);
+ * richTextBox1.SelectionStart = richTextBox1.SelectionStart + richTextBox1.SelectionLength;
+ * richTextBox1.SelectionLength = 0;
+ * richTextBox1.SelectionFont = richTextBox1.Font;
+ * 
+ * richTextBox1.Select(selstart, sellength);
+ */
