@@ -15,7 +15,7 @@ namespace Pliczki
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();//
         }
 
         private void OpenFileButton_Click(object sender, EventArgs e)
