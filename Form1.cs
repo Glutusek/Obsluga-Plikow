@@ -117,9 +117,73 @@ namespace Pliczki
             }
         }
 
-        private void ColorButton_Click(object sender, EventArgs e)
+        private void OpenFileButton_RTF_Click(object sender, EventArgs e)
         {
+            Stream stream = null;
 
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                InitialDirectory = @"C:\",
+                RestoreDirectory = true,
+                Title = "Open Rtf Files",
+                DefaultExt = "rtf",
+                Filter = "Rtf files (*.rtf)|*.rtf|All files (*.*)|*.*",
+                CheckFileExists = true,
+                CheckPathExists = true,
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((stream = openFileDialog.OpenFile()) != null)
+                    {
+                        RichTextBox.Text = "";
+                        RichTextBox.LoadFile(openFileDialog.FileName);
+                    }
+                    stream.Close();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Error: " + exc.Message);
+                    stream.Close();
+                }
+            }
+        }
+
+        private void SaveFileButton_RTF_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = @"C:\",
+                RestoreDirectory = true,
+                Title = "Open Rtf Files",
+                DefaultExt = "rtf",
+                Filter = "Rtf files (*.rtf)|*.rtf|All files (*.*)|*.*",
+                CheckPathExists = true
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    StreamWriter fileWriter = new StreamWriter(saveFileDialog.OpenFile());
+
+                    if (RichTextBox.Rtf != null)
+                    {
+                        fileWriter.Write(RichTextBox.Rtf);
+                    }
+
+                    fileWriter.Flush();
+                    fileWriter.Close();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Error: " + exc.Message);
+                }
+            }
         }
     }
 }

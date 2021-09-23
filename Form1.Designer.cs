@@ -35,10 +35,11 @@ namespace Pliczki
             this.tabControl = new System.Windows.Forms.TabControl();
             this.withoutFormat = new System.Windows.Forms.TabPage();
             this.withFormat = new System.Windows.Forms.TabPage();
+            this.SaveFileButton_RTF = new System.Windows.Forms.Button();
+            this.OpenFileButton_RTF = new System.Windows.Forms.Button();
             this.FontButton = new System.Windows.Forms.Button();
             this.RichTextBox = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ColorButton = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.withoutFormat.SuspendLayout();
             this.withFormat.SuspendLayout();
@@ -98,8 +99,9 @@ namespace Pliczki
             // 
             // withFormat
             // 
-            this.withFormat.Controls.Add(this.button2);
-            this.withFormat.Controls.Add(this.button1);
+            this.withFormat.Controls.Add(this.ColorButton);
+            this.withFormat.Controls.Add(this.SaveFileButton_RTF);
+            this.withFormat.Controls.Add(this.OpenFileButton_RTF);
             this.withFormat.Controls.Add(this.FontButton);
             this.withFormat.Controls.Add(this.RichTextBox);
             this.withFormat.Location = new System.Drawing.Point(4, 24);
@@ -109,6 +111,26 @@ namespace Pliczki
             this.withFormat.TabIndex = 1;
             this.withFormat.Text = "withFormatting";
             this.withFormat.UseVisualStyleBackColor = true;
+            // 
+            // SaveFileButton_RTF
+            // 
+            this.SaveFileButton_RTF.Location = new System.Drawing.Point(541, 138);
+            this.SaveFileButton_RTF.Name = "SaveFileButton_RTF";
+            this.SaveFileButton_RTF.Size = new System.Drawing.Size(95, 23);
+            this.SaveFileButton_RTF.TabIndex = 3;
+            this.SaveFileButton_RTF.Text = "Save";
+            this.SaveFileButton_RTF.UseVisualStyleBackColor = true;
+            this.SaveFileButton_RTF.Click += new System.EventHandler(this.SaveFileButton_RTF_Click);
+            // 
+            // OpenFileButton_RTF
+            // 
+            this.OpenFileButton_RTF.Location = new System.Drawing.Point(541, 94);
+            this.OpenFileButton_RTF.Name = "OpenFileButton_RTF";
+            this.OpenFileButton_RTF.Size = new System.Drawing.Size(95, 23);
+            this.OpenFileButton_RTF.TabIndex = 2;
+            this.OpenFileButton_RTF.Text = "Open";
+            this.OpenFileButton_RTF.UseVisualStyleBackColor = true;
+            this.OpenFileButton_RTF.Click += new System.EventHandler(this.OpenFileButton_RTF_Click);
             // 
             // FontButton
             // 
@@ -128,23 +150,14 @@ namespace Pliczki
             this.RichTextBox.TabIndex = 0;
             this.RichTextBox.Text = "";
             // 
-            // button1
+            // ColorButton
             // 
-            this.button1.Location = new System.Drawing.Point(541, 94);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Open";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(541, 138);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Save";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ColorButton.Location = new System.Drawing.Point(541, 231);
+            this.ColorButton.Name = "ColorButton";
+            this.ColorButton.Size = new System.Drawing.Size(95, 22);
+            this.ColorButton.TabIndex = 4;
+            this.ColorButton.Text = "Change color";
+            this.ColorButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -172,8 +185,9 @@ namespace Pliczki
         private System.Windows.Forms.TabPage withFormat;
         private System.Windows.Forms.Button FontButton;
         private System.Windows.Forms.RichTextBox RichTextBox;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SaveFileButton_RTF;
+        private System.Windows.Forms.Button OpenFileButton_RTF;
+        private System.Windows.Forms.Button ColorButton;
     }
 }
 
