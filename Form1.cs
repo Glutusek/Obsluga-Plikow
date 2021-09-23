@@ -15,7 +15,7 @@ namespace Pliczki
     {
         public Form1()
         {
-            InitializeComponent();//
+            InitializeComponent();
         }
 
         private void OpenFileButton_Click(object sender, EventArgs e)
@@ -96,6 +96,30 @@ namespace Pliczki
                     MessageBox.Show("Error: " + exc.Message);
                 }
             }
+        }
+
+        private void FontButton_Click(object sender, EventArgs e)
+        {
+            FontDialog dialog = new FontDialog
+            {
+                ShowApply = true,
+                ShowColor = true,
+                ShowEffects = true,
+                ShowHelp = true,
+                MinSize = 6,
+                MaxSize = 100,
+            };
+
+            if(dialog.ShowDialog() == DialogResult.OK)
+            {
+                RichTextBox.SelectionFont = dialog.Font;
+                RichTextBox.SelectionColor = dialog.Color;
+            }
+        }
+
+        private void ColorButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
