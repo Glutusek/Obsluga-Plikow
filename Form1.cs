@@ -102,8 +102,6 @@ namespace Pliczki
         {
             FontDialog dialog = new FontDialog
             {
-                ShowApply = true,
-                ShowColor = true,
                 ShowEffects = true,
                 ShowHelp = true,
                 MinSize = 6,
@@ -113,6 +111,22 @@ namespace Pliczki
             if(dialog.ShowDialog() == DialogResult.OK)
             {
                 RichTextBox.SelectionFont = dialog.Font;
+                RichTextBox.SelectionColor = dialog.Color;
+            }
+        }
+
+        private void ColorButton_Click(object sender, EventArgs e)
+        {
+            ColorDialog dialog = new ColorDialog
+            {
+                AllowFullOpen = true,
+                AnyColor = true,
+                SolidColorOnly = false,
+                Color = Color.Black
+            };
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
                 RichTextBox.SelectionColor = dialog.Color;
             }
         }
@@ -184,6 +198,13 @@ namespace Pliczki
                     MessageBox.Show("Error: " + exc.Message);
                 }
             }
+        }
+
+        private void FontButton_CheckedChanged(object sender, EventArgs e)
+        {
+            /*var buttons = Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked);
+
+            MessageBox.Show(buttons.Name);*/
         }
     }
 }
